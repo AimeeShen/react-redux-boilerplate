@@ -44,6 +44,8 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
     "jsdom": "^9.4.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "mocha": "^2.3.4",
     "mocha-jsdom": "^1.1.0",
     "optimize-css-assets-webpack-plugin": "^1.3.0",
@@ -52,9 +54,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.6.0",
-    "less-loader": "^2.2.3",
-    "less": "^2.7.1"
+    "webpack-hot-middleware": "^2.6.0"
   },
-  "author": "Aimee Shen <miniann423@gmail.com>"
+  "author": "Aimee Shen <miniann423@gmail.com>",
+  "repository": "https://github.com/AimeeShen/react-redux-boilerplate.git"
 }
