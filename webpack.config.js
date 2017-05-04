@@ -32,24 +32,17 @@ var webpackConfig = {
                     'style-loader',
                     'css-loader')
             },
-            
+
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract(
                     'style-loader',
                     'css-loader!less-loader')
             },
-            
-            
             {
-                test: /\.vue$/,
-                loader: 'vue'
+                test: /\.json$/,
+                loader: 'json'
             },
-            {
-                test: /\.html$/,
-                loader: 'vue-html'
-            },
-             
             {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
@@ -71,7 +64,7 @@ var webpackConfig = {
             Components: path.resolve(__dirname, 'components')
         }
     },
-    
+
 };
 
 // Plugins for different environment
