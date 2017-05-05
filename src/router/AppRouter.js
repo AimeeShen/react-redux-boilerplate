@@ -4,7 +4,7 @@
  **/
 
 import React from 'react';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Route } from 'react-router';
 import PureComponent from '../components/PureComponent';
 
 import App from '../containers/App';
@@ -12,11 +12,9 @@ import App from '../containers/App';
 class RootRouter extends PureComponent {
     render() {
         return (
-            <Router history={this.props.history}>
-                <Route path="/" component={App}>
-                    <IndexRoute component={App} />
-                </Route>
-            </Router>
+            <div>
+                <Route path="/" component={App} />
+            </div>
         );
     }
 }
