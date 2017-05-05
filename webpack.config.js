@@ -53,11 +53,11 @@ var webpackConfig = {
                     presets: ['es2015', 'stage-0', 'react']
                 }
             },
-            { test: /\.(png|jpg|gif)$/,  loader: 'url?limit=8192' },
-            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=65000&mimetype=application/font-woff" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=65000&mimetype=application/octet-stream]" },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=65000&mimetype=application/vnd.ms-fontobject" },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=65000&mimetype=image/svg+xml" }
+            { test: /\.(png|jpg|gif)$/,  loader: 'url-loader?limit=8192' },
+            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=65000&mimetype=application/font-woff" },
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=65000&mimetype=application/octet-stream]" },
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=65000&mimetype=application/vnd.ms-fontobject" },
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=65000&mimetype=image/svg+xml" }
         ]
     },
     resolve: {
