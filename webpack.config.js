@@ -85,7 +85,6 @@ if (__DEV__) {
 } else if (__PROD__) {
     webpackConfig.plugins = [
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
         new ExtractTextPlugin({
             filename: "styles.css",
             allChunks: true
@@ -95,7 +94,6 @@ if (__DEV__) {
             cssProcessorOptions: { discardComments: {removeAll: true } },
             canPrint: true
         }),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 unused: true,
