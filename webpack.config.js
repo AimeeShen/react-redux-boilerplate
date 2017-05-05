@@ -17,31 +17,32 @@ var webpackConfig = {
         publicPath: '/static/'
     },
     module: {
-        preLoaders: [
+        rules: [
             {
                 test: /\.(js|jsx)$/,
+                enforce: "pre",
                 loader: 'eslint-loader',
                 include: __dirname,
                 exclude: /node_modules/
-            }
-        ],
-        loaders: [
+            },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract(
-                    'style-loader',
-                    'css-loader')
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader",
+                    publicPath: "/dist"
+                })
             },
-
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract(
-                    'style-loader',
-                    'css-loader!less-loader')
-            },
-            {
-                test: /\.json$/,
-                loader: 'json'
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        "css-loader",
+                        "less-loader"
+                    ],
+                    publicPath: "/dist"
+                })
             },
             {
                 test: /\.(js|jsx)$/,
@@ -70,8 +71,11 @@ var webpackConfig = {
 // Plugins for different environment
 if (__DEV__) {
     webpackConfig.plugins = [
-        new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin("styles.css", { allChunks: true }),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new ExtractTextPlugin({
+            filename: "styles.css",
+            allChunks: true
+        }),
         new webpack.DefinePlugin({
           'process.env': {
             'NODE_ENV': '"development"'
@@ -80,9 +84,12 @@ if (__DEV__) {
     ];
 } else if (__PROD__) {
     webpackConfig.plugins = [
-        new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new ExtractTextPlugin("styles.css", { allChunks: true }),
+        new ExtractTextPlugin({
+            filename: "styles.css",
+            allChunks: true
+        }),
         new OptimizeCssAssetsPlugin({
             cssProcessor: require('cssnano'),
             cssProcessorOptions: { discardComments: {removeAll: true } },
