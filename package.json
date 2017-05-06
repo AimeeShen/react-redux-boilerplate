@@ -55,7 +55,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^2.5.0",
     "webpack-dev-middleware": "^1.10.2",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.18.0"
   },
   "author": "Aimee Shen <miniann423@gmail.com>",
   "repository": "https://github.com/AimeeShen/react-redux-boilerplate.git"

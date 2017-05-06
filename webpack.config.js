@@ -72,6 +72,7 @@ var webpackConfig = {
 if (__DEV__) {
     webpackConfig.plugins = [
         new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin({
             filename: "styles.css",
             allChunks: true

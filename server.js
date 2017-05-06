@@ -1,3 +1,4 @@
+var path = require('path');
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
@@ -7,11 +8,22 @@ var express = require('express');
 var app = express();
 var port = 8000;
 
-var compiler = webpack(config);
+var webpackConfig = Object.create(config);
+webpackConfig.entry = [
+    './index.js',
+    'webpack-hot-middleware/client?reload=true'
+];
+webpackConfig.output = {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: 'http://localhost:8000/static/'
+};
+
+var compiler = webpack(webpackConfig);
 app.use(webpackDevMiddleware(compiler, {
     quiet: false,
     noInfo: false,
-    publicPath: config.output.publicPath,
+    publicPath: webpackConfig.output.publicPath,
     stats: {
         colors: true
     }
