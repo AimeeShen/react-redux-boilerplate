@@ -1,7 +1,8 @@
 # react-redux-boilerplate
 
-## Installation
 A boilerplate for React + Redux JavaScript Application build up with Webpack 2, support ES6+ Syntax and live linting.
+
+## Installation
 
 ```bash
 $ git clone https://github.com/AimeeShen/react-redux-boilerplate.git <my-project-name>
