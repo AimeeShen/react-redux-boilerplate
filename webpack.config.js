@@ -40,8 +40,17 @@ var webpackConfig = {
                     use: [
                         "css-loader",
                         "less-loader"
-                    ],
-                    publicPath: "/dist"
+                    ]
+                })
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        "css-loader",
+                        "sass-loader"
+                    ]
                 })
             },
             {
