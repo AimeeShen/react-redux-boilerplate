@@ -1,12 +1,11 @@
 /**
  * @module PureComponent
- * Extend react-pure-render/component
- * Add _bind function for function binding
+ * Use built in React.PureComponent
+ * Add _bind function for function binding sugar
  **/
+import React from 'react';
 
-import PureComponent from 'react-pure-render/component';
-
-class Component extends PureComponent {
+class Component extends React.PureComponent {
 
     _bind(...handlers) {
         handlers.forEach(handler => {
