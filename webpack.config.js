@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 var autoprefixer = require('autoprefixer');
 
@@ -104,13 +105,10 @@ if (__DEV__) {
             cssProcessorOptions: { discardComments: {removeAll: true } },
             canPrint: true
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                unused: true,
-                dead_code: true,
-                warnings: false
-            }
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
         }),
+        new UglifyJSPlugin(),
         new webpack.DefinePlugin({
           'process.env': {
             'NODE_ENV': '"production"'
